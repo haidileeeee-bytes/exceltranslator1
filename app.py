@@ -72,3 +72,8 @@ if __name__ == '__main__':
 그리고 Render → **Settings** → **Start Command** 를 이걸로 바꿔:
 ```
 gunicorn --workers 1 --timeout 180 app:app
+# 이 줄을
+download_name = f'{original_name}_번역.xlsx'
+
+# 이걸로 바꾸기
+download_name = f'{original_name}_translated.xlsx'
