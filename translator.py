@@ -38,3 +38,4 @@ def translate_excel(input_path, output_path, source_lang, target_lang):
                     time.sleep(0.05)  # API 과부하 방지
 
     wb.save(output_path)
+# -*- coding: utf-8 -*-
