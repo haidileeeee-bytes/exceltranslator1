@@ -4,7 +4,7 @@ from flask import Flask, request, render_template, send_file, jsonify
 from translator import translate_excel
 
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 최대 10MB
+app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -54,7 +54,7 @@ def translate():
             os.remove(input_path)
 
     original_name = os.path.splitext(file.filename)[0]
-    download_name = f'{original_name}_번역.xlsx'
+    download_name = f'{original_name}_translated.xlsx'
 
     return send_file(
         output_path,
@@ -65,15 +65,3 @@ def translate():
 
 if __name__ == '__main__':
     app.run(debug=False)
-if __name__ == '__main__':
-    app.run(debug=False)
-```
-
-그리고 Render → **Settings** → **Start Command** 를 이걸로 바꿔:
-```
-gunicorn --workers 1 --timeout 180 app:app
-# 이 줄을
-download_name = f'{original_name}_번역.xlsx'
-
-# 이걸로 바꾸기
-download_name = f'{original_name}_translated.xlsx'
