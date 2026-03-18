@@ -65,3 +65,10 @@ def translate():
 
 if __name__ == '__main__':
     app.run(debug=False)
+if __name__ == '__main__':
+    app.run(debug=False)
+```
+
+그리고 Render → **Settings** → **Start Command** 를 이걸로 바꿔:
+```
+gunicorn --workers 1 --timeout 180 app:app
